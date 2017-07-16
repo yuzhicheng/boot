@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<meta content="text/html;charset=UTF-8" />
+<head>
+<title>登录界面</title>
+<link th:href="@{css/bootstrap.min.css}" rel="stylesheet" />
+<link th:href="@{bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet" />
+<style type="text/css">
+body {
+	padding-top: 50px;
+}
+
+.starter-template {
+	padding: 40px 15px;
+	text-aligin: center;
+}
+</style>
+<!-- 引入js文件在这里没有被使用，主要目的是测试spring security对静态资源的拦截是否进行了忽略 -->
+<!-- 测试/js/**、/**/**.js的路径是否正常，***经测试正常 -->
+<script th:src="@{js/jquery-2.1.4.min.js}"></script>
+<script th:src="@{sockjs.min.js}"></script>
+<script th:src="@{stomp.min.js}"></script>
+</head>
+<body>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Spring Security 演示</a>
+			</div>
+			<div id="navbar" class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a th:href="@{/}">首页</a></li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</nav>
+
+	<div class="container">
+		<div class="starter-template">
+			<p th:if="${param.error}" class="bg-danger">无效的账号和密码</p>
+			<p th:if="${param.logout}" class="bg-warning">已成功注销</p>
+			<h2>使用账号和密码登录</h2>
+
+            <!--  默认的登录路径为/login（自Spring Security 4.x开始）-->
+			<form name="form" th:action="@{/login}" action="/login" method="post">
+				<div class="form-group">
+					<label for="username">账号</label> <input type="text"
+						class="form-control" name="username" value="" placeholder="账号" />
+				</div>
+				<div class="form-group">
+					<label for="password">密码</label> <input type="password"
+						class="form-control" name="password" placeholder="账号" />
+				</div>
+				<input type="submit" value="登录" id="login" class="btn btn-primary" />
+			</form>
+		</div>
+
+	</div>
+
+	<!-- 	<div th:if="${param.error}">无效的账号和密码</div>
+	<div th:if="${param.logout}">你已注销</div>
+
+	<form th:action="@{/login}" method="post">
+		<div>
+			<label>账号 : <input type="text" name="username" /></label>
+		</div>
+		<div>
+			<label>密码 : <input type="password" name="password" /></label>
+		</div>
+		<div>
+			<input type="submit" value="登录" />
+		</div>
+	</form> -->
+</body>
+</html>

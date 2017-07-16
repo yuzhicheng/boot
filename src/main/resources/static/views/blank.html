@@ -1,0 +1,48 @@
+
+<div class="breadcrumbs" id="breadcrumbs">
+	<script type="text/javascript">
+		try {
+			ace.settings.check('breadcrumbs', 'fixed')
+		} catch (e) {
+		}
+	</script>
+
+	<ul class="breadcrumb">
+		<li><i class="icon-home home-icon"></i> <a href="#">Home</a></li>
+
+		<li><a href="#">Other Pages</a></li>
+		<li class="active">Blank Page</li>
+	</ul>
+	<!-- .breadcrumb -->
+
+	<div class="nav-search" id="nav-search">
+		<form class="form-search">
+			<span class="input-icon"> <input type="text"
+				placeholder="Search ..." class="nav-search-input"
+				id="nav-search-input" autocomplete="off" /> <i
+				class="icon-search nav-search-icon"></i>
+			</span>
+		</form>
+	</div>
+	<!-- #nav-search -->
+</div>
+<div class="page-content">
+	<div class="row">
+		<div class="col-xs-12">
+			<label for="attr" class="col-md-2 control-label">名称</label>
+			<div class="col-md-2">
+				<input type="text" class="form-control" ng-model=personName>
+			</div>
+			<div class="col-md-1">
+				<button class="btn-primary" ng-click="find()">查询</button>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<ul class="list-group">
+				<li class="list-group-item">名字：{{person.name}}</li>
+				<li class="list-group-item">年龄：{{person.age}}</li>
+				<li class="list-group-item">地址：{{person.address}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
